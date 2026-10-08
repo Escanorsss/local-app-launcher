@@ -143,7 +143,7 @@ public class ServiceController {
     public void Validate() {
         if (!File.Exists(app.Executable)) throw new Exception("找不到运行程序，请检查配置。");
         if (!Directory.Exists(app.WorkingDirectory)) throw new Exception("找不到项目工作目录。");
-        if (!File.Exists(app.Browser)) throw new Exception("找不到 Brave 浏览器，请检查配置。");
+        if (!File.Exists(app.Browser)) throw new Exception("找不到配置的浏览器，请检查配置。");
         if (!String.IsNullOrEmpty(app.UrlTokenKey) && !ReadEnv().ContainsKey(app.UrlTokenKey))
             throw new Exception("找不到待办台访问凭据，请检查原项目 .env。");
     }
@@ -232,7 +232,7 @@ public class ServiceController {
             url += (url.Contains("?") ? "&" : "?") + "token=" + Uri.EscapeDataString(token);
         }
         Process.Start(new ProcessStartInfo(app.Browser, "\"" + url + "\"") { UseShellExecute = false });
-        Log("已使用 Brave 打开页面。");
+        Log("已使用配置的浏览器打开页面。");
     }
     public object Status() {
         using(var p = Owned()) return new { ready = Ready(), owned = p != null, pid = p == null ? 0 : p.Id };

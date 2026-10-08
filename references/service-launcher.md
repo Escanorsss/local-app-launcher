@@ -27,7 +27,7 @@
       "WorkingDirectory": "D:\\SoftwareData\\ExampleService",
       "ProjectDirectory": "D:\\Softwares\\ExampleService",
       "Url": "http://127.0.0.1:8080/",
-      "Browser": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
+      "Browser": "D:\\Apps\\WebBrowser\\browser.exe",
       "Icon": "D:\\Softwares\\ExampleService\\app.ico",
       "Ports": [8080],
       "Checks": [{"Url": "http://127.0.0.1:8080/health", "Marker": "example-service"}],

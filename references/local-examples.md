@@ -2,17 +2,17 @@
 
 以下是分类参考，不是当前机器的配置。使用前检查真实路径、版本、原入口和现有数据。
 
-## Ani：带配套目录的桌面 EXE
+## 带配套目录的桌面 EXE
 
-[Ani / Animeko](https://github.com/open-ani/animeko) 的 Windows 应用包可包含 `Ani.exe`、`app` 和 `runtime`。检查过的 6.2.0 包采用 Java jpackage，启动器指向 Kotlin/Compose 桌面主类，自带 JVM；版本和包结构变化时需重新核实。
+某些桌面应用包包含 `MyApp.exe`、`app`、`runtime` 或 `resources`。EXE 可能只是调用内置运行时的薄启动器；不能据扩展名推断它是独立单文件程序。先检查配套配置或软件说明。
 
 开始菜单快捷方式直接指向原 EXE，工作目录设为应用根目录，图标使用原 EXE。无需另加浏览器入口或第二个托盘。薄启动 EXE 不能单独复制出去，必须保留配套运行时和资源。
 
 ```powershell
-./scripts/New-AppShortcut.ps1 -Name 'Ani' -TargetPath 'D:\Apps\Ani\Ani.exe' -WorkingDirectory 'D:\Apps\Ani'
+./scripts/New-AppShortcut.ps1 -Name 'MyApp' -TargetPath 'D:\Apps\MyApp\MyApp.exe' -WorkingDirectory 'D:\Apps\MyApp'
 ```
 
-数据目录不能由工作目录推断。该版本通过 Windows Shell32 取得用户目录，再附加组织/应用名及 data/cache。修改“起始位置”不会改变这类目录，覆盖 APPDATA 也未必影响 Shell32。先核实受支持的设置，再考虑迁移；“视频缓存目录”不一定覆盖配置和日志。
+数据目录不能由工作目录推断。有的应用通过系统接口取得用户配置或缓存目录，修改“起始位置”或覆盖环境变量未必能改变这些位置。先核实受支持的设置，再考虑迁移；某一类缓存的设置不一定覆盖配置和日志。
 
 ## 已编译的服务 EXE
 
