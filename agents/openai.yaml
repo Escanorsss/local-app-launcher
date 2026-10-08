@@ -1,0 +1,4 @@
+interface:
+  display_name: "本地应用入口与托盘启动器"
+  short_description: "将 Windows 桌面软件与本地网页服务做成可搜索、一键启动的应用入口"
+  default_prompt: "使用 $local-app-launcher 为这个本地软件建立可搜索的应用入口，并按需要添加托盘服务管理。"

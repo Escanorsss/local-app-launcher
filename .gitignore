@@ -1,0 +1,13 @@
+*.exe
+*.dll
+*.ico
+*.log
+*.previous
+.env
+.env.*
+apps.json
+my-apps.json
+tests/skill-checks/
+tests/skill-verification.json
+__pycache__/
+.venv/
